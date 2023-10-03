@@ -4,20 +4,18 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>7c023532-b0dc-4ea1-aada-15add784dd63</UserSecretsId>
+    <UserSecretsId>0b9398eb-e2d4-49bc-96ff-5e6505393ca2</UserSecretsId>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Mapster" Version="7.4.0" />
-    <PackageReference Include="Mapster.DependencyInjection" Version="1.0.1" />
-    <PackageReference Include="MediatR" Version="12.1.1" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
-  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\BuberDinner.Contracts\BuberDinner.Contracts.csproj" />
     <ProjectReference Include="..\BuberDinner.Application\BuberDinner.Application.csproj" />
     <ProjectReference Include="..\BuberDinner.Infrastructure\BuberDinner.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Mapster" Version="7.3.0" />
+    <PackageReference Include="Mapster.DependencyInjection" Version="1.0.0" />
   </ItemGroup>
 
 </Project>

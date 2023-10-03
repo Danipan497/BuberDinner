@@ -1,4 +1,4 @@
-﻿namespace BuberDinner.Api.Common.Http;
+namespace BuberDinner.Api.Common.Http;
 
 public static class HttpContextItemKeys
 {

@@ -1,4 +1,4 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 using BuberDinner.Api.Common.Http;
 using ErrorOr;
 using Microsoft.AspNetCore.Mvc;
