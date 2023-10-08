@@ -1,10 +1,10 @@
-﻿using BuberDinner.Domain.Bill.ValueObjects;
+using BuberDinner.Domain.BillAggregate.ValueObjects;
 using BuberDinner.Domain.Common.Models;
-using BuberDinner.Domain.Dinner.Enums;
-using BuberDinner.Domain.Dinner.ValueObjects;
-using BuberDinner.Domain.Guest.ValueObjects;
+using BuberDinner.Domain.DinnerAggregate.Enums;
+using BuberDinner.Domain.DinnerAggregate.ValueObjects;
+using BuberDinner.Domain.GuestAggregate.ValueObjects;
 
-namespace BuberDinner.Domain.Dinner.Entities;
+namespace BuberDinner.Domain.DinnerAggregate.Entities;
 
 public sealed class Reservation : Entity<ReservationId>
 {
@@ -24,7 +24,7 @@ public sealed class Reservation : Entity<ReservationId>
         DateTime? arrivalDateTime,
         BillId? billId,
         ReservationStatus status)
-        : base(ReservationId.Create(dinnerId, guestId))
+        : base(ReservationId.CreateUnique())
     {
         DinnerId = dinnerId;
         GuestId = guestId;

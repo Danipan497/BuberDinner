@@ -1,7 +1,7 @@
-﻿using BuberDinner.Domain.Common.Models;
-using BuberDinner.Domain.Menu.ValueObjects;
+using BuberDinner.Domain.Common.Models;
+using BuberDinner.Domain.MenuAggregate.ValueObjects;
 
-namespace BuberDinner.Domain.Menu.Entities;
+namespace BuberDinner.Domain.MenuAggregate.Entities;
 
 public sealed class MenuSection : Entity<MenuSectionId>
 {
@@ -12,7 +12,7 @@ public sealed class MenuSection : Entity<MenuSectionId>
     public IReadOnlyList<MenuItem> Items => _items.AsReadOnly();
 
     private MenuSection(string name, string description, List<MenuItem> items, MenuSectionId? id = null)
-        : base(id ?? MenuSectionId.Create(name))
+        : base(id ?? MenuSectionId.CreateUnique())
     {
         Name = name;
         Description = description;

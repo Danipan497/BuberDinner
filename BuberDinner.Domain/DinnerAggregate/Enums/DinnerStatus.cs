@@ -1,6 +1,6 @@
-﻿using Ardalis.SmartEnum;
+using Ardalis.SmartEnum;
 
-namespace BuberDinner.Domain.Dinner.Enums;
+namespace BuberDinner.Domain.DinnerAggregate.Enums;
 
 public class DinnerStatus : SmartEnum<DinnerStatus>
 {

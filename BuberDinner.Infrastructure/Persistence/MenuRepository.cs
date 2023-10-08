@@ -1,21 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using BuberDinner.Application.Common.Interfaces.Persistence;
-using BuberDinner.Domain.Menu;
+using BuberDinner.Domain.MenuAggregate;
 
-namespace BuberDinner.Infrastructure.Persistence
+namespace BuberDinner.Infrastructure.Persistence;
+
+public class MenuRepository : IMenuRepository
 {
-    public class MenuRepository : IMenuRepository
-    {
-        private static readonly List<Menu> _menus = new();
+    private static readonly List<Menu> _menus = new();
 
-        public void Add(Menu menu) 
-        {
-            _menus.Add(menu);
-        }
+    public void Add(Menu menu)
+    {
+        _menus.Add(menu);
     }
 }

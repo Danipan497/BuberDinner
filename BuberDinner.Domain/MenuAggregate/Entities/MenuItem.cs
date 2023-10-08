@@ -1,7 +1,7 @@
-﻿using BuberDinner.Domain.Common.Models;
-using BuberDinner.Domain.Menu.ValueObjects;
+using BuberDinner.Domain.Common.Models;
+using BuberDinner.Domain.MenuAggregate.ValueObjects;
 
-namespace BuberDinner.Domain.Menu.Entities;
+namespace BuberDinner.Domain.MenuAggregate.Entities;
 
 public sealed class MenuItem : Entity<MenuItemId>
 {
@@ -9,7 +9,7 @@ public sealed class MenuItem : Entity<MenuItemId>
     public string Description { get; }
 
     private MenuItem(string name, string description)
-        : base(MenuItemId.Create(name))
+        : base(MenuItemId.CreateUnique())
     {
         Name = name;
         Description = description;

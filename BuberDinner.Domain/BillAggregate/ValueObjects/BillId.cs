@@ -1,8 +1,8 @@
-﻿using BuberDinner.Domain.Common.Models;
-using BuberDinner.Domain.Dinner.ValueObjects;
-using BuberDinner.Domain.Guest.ValueObjects;
+using BuberDinner.Domain.Common.Models;
+using BuberDinner.Domain.DinnerAggregate.ValueObjects;
+using BuberDinner.Domain.GuestAggregate.ValueObjects;
 
-namespace BuberDinner.Domain.Bill.ValueObjects;
+namespace BuberDinner.Domain.BillAggregate.ValueObjects;
 
 public sealed class BillId : ValueObject
 {

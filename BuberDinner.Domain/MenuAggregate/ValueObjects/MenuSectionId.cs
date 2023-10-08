@@ -1,25 +1,24 @@
-﻿using BuberDinner.Domain.Common.Models;
+using BuberDinner.Domain.Common.Models;
 
-namespace BuberDinner.Domain.Menu.ValueObjects;
+namespace BuberDinner.Domain.MenuAggregate.ValueObjects;
 
 public sealed class MenuSectionId : ValueObject
 {
-    public MenuSectionId(string sectionName)
+    public MenuSectionId(Guid value)
     {
-        Value = $"Section_{sectionName}";
+        Value = value;
     }
 
-    public string Value { get; }
+    public Guid Value { get; }
 
-    public static MenuSectionId Create(string sectionName)
+    public static MenuSectionId CreateUnique()
     {
         // TODO: enforce invariants
-        return new MenuSectionId(sectionName);
+        return new MenuSectionId(Guid.NewGuid());
     }
 
     public override IEnumerable<object> GetEqualityComponents()
     {
         yield return Value;
     }
-
 }

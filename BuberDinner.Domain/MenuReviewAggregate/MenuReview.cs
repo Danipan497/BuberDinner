@@ -1,12 +1,12 @@
-﻿using BuberDinner.Domain.Common.Models;
+using BuberDinner.Domain.Common.Models;
 using BuberDinner.Domain.Common.ValueObjects;
-using BuberDinner.Domain.Dinner.ValueObjects;
-using BuberDinner.Domain.Guest.ValueObjects;
-using BuberDinner.Domain.Host.ValueObjects;
-using BuberDinner.Domain.Menu.ValueObjects;
-using BuberDinner.Domain.MenuReview.ValueObjects;
+using BuberDinner.Domain.DinnerAggregate.ValueObjects;
+using BuberDinner.Domain.GuestAggregate.ValueObjects;
+using BuberDinner.Domain.HostAggregate.ValueObjects;
+using BuberDinner.Domain.MenuAggregate.ValueObjects;
+using BuberDinner.Domain.MenuReviewAggregate.ValueObjects;
 
-namespace BuberDinner.Domain.MenuReview;
+namespace BuberDinner.Domain.MenuReviewAggregate;
 
 public sealed class MenuReview : AggregateRoot<MenuReviewId>
 {
@@ -27,7 +27,6 @@ public sealed class MenuReview : AggregateRoot<MenuReviewId>
         DinnerId dinnerId)
         : base(menuReviewId)
     {
-
         Rating = rating;
         Comment = comment;
         HostId = hostId;
@@ -49,7 +48,7 @@ public sealed class MenuReview : AggregateRoot<MenuReviewId>
         var ratingValueObject = Rating.Create(rating);
 
         return new MenuReview(
-            menuReviewId ?? MenuReviewId.Create(menuId, dinnerId, guestId),
+            menuReviewId ?? MenuReviewId.CreateUnique(),
             ratingValueObject,
             comment,
             hostId,

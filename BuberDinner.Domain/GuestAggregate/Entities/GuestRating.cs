@@ -1,11 +1,12 @@
-﻿using BuberDinner.Domain.Common.Models;
+using BuberDinner.Domain.Common.Models;
 using BuberDinner.Domain.Common.ValueObjects;
-using BuberDinner.Domain.Dinner.ValueObjects;
-using BuberDinner.Domain.Guest.ValueObjects;
-using BuberDinner.Domain.Host.ValueObjects;
+using BuberDinner.Domain.DinnerAggregate.ValueObjects;
+using BuberDinner.Domain.GuestAggregate.ValueObjects;
+using BuberDinner.Domain.HostAggregate.ValueObjects;
+
 using ErrorOr;
 
-namespace BuberDinner.Domain.Guest.Entities;
+namespace BuberDinner.Domain.GuestAggregate.Entities;
 
 public sealed class GuestRating : Entity<GuestRatingId>
 {
@@ -16,7 +17,7 @@ public sealed class GuestRating : Entity<GuestRatingId>
     public DateTime UpdatedDateTime { get; }
 
     private GuestRating(DinnerId dinnerId, HostId hostId, Rating rating)
-        : base(GuestRatingId.Create(dinnerId, hostId))
+        : base(GuestRatingId.CreateUnique())
     {
         DinnerId = dinnerId;
         HostId = hostId;

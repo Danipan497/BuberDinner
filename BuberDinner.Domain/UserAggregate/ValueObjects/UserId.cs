@@ -1,6 +1,6 @@
-﻿using BuberDinner.Domain.Common.Models;
+using BuberDinner.Domain.Common.Models;
 
-namespace BuberDinner.Domain.User.ValueObjects;
+namespace BuberDinner.Domain.UserAggregate.ValueObjects;
 
 public sealed class UserId : ValueObject
 {
@@ -13,7 +13,7 @@ public sealed class UserId : ValueObject
 
     public static UserId CreateUnique()
     {
-        return new UserId(new Guid());
+        return new UserId(Guid.NewGuid());
     }
 
     public static UserId Create(Guid userId)
@@ -25,5 +25,4 @@ public sealed class UserId : ValueObject
     {
         yield return Value;
     }
-
 }

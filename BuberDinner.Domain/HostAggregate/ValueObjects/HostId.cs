@@ -1,7 +1,7 @@
-﻿using BuberDinner.Domain.Common.Models;
-using BuberDinner.Domain.User.ValueObjects;
+using BuberDinner.Domain.Common.Models;
+using BuberDinner.Domain.UserAggregate.ValueObjects;
 
-namespace BuberDinner.Domain.Host.ValueObjects;
+namespace BuberDinner.Domain.HostAggregate.ValueObjects;
 
 public sealed class HostId : ValueObject
 {

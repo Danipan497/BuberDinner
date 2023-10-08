@@ -1,14 +1,14 @@
-﻿using BuberDinner.Domain.Common.Models;
+using BuberDinner.Domain.Common.Models;
 
-namespace BuberDinner.Domain.Menu.ValueObjects;
+namespace BuberDinner.Domain.MenuAggregate.ValueObjects;
 
 public sealed class MenuItemId : ValueObject
 {
-    public string Value { get; }
+    public Guid Value { get; }
 
-    private MenuItemId(string itemName)
+    private MenuItemId(Guid value)
     {
-        Value = $"Item_{itemName}";
+        Value = value;
     }
 
     public override IEnumerable<object> GetEqualityComponents()
@@ -16,8 +16,8 @@ public sealed class MenuItemId : ValueObject
         yield return Value;
     }
 
-    public static MenuItemId Create(string itemName)
+    public static MenuItemId CreateUnique()
     {
-        return new MenuItemId(itemName);
+        return new MenuItemId(Guid.NewGuid());
     }
 }
