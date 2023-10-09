@@ -2,14 +2,14 @@ using BuberDinner.Domain.Common.Models;
 
 namespace BuberDinner.Domain.UserAggregate.ValueObjects;
 
-public sealed class UserId : ValueObject
+public sealed class UserId : AggregateRootId<Guid>
 {
+    public override Guid Value { get; protected set; }
+
     private UserId(Guid value)
     {
         Value = value;
     }
-
-    public Guid Value { get; }
 
     public static UserId CreateUnique()
     {
@@ -25,4 +25,10 @@ public sealed class UserId : ValueObject
     {
         yield return Value;
     }
+
+#pragma warning disable CS8618
+    private UserId()
+    {
+    }
+#pragma warning restore CS8618
 }

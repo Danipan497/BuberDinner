@@ -8,7 +8,7 @@ using BuberDinner.Domain.UserAggregate.ValueObjects;
 
 namespace BuberDinner.Domain.GuestAggregate;
 
-public sealed class Guest : AggregateRoot<GuestId>
+public sealed class Guest : AggregateRoot<GuestId, Guid>
 {
     private readonly List<DinnerId> _upcomingDinnerIds = new();
     private readonly List<DinnerId> _pastDinnerIds = new();
@@ -17,10 +17,10 @@ public sealed class Guest : AggregateRoot<GuestId>
     private readonly List<MenuReviewId> _menuReviewIds = new();
     private readonly List<GuestRating> _ratings = new();
 
-    public string FirstName { get; }
-    public string LastName { get; }
-    public Uri ProfileImage { get; }
-    public UserId UserId { get; }
+    public string FirstName { get; private set; }
+    public string LastName { get; private set; }
+    public Uri ProfileImage { get; private set; }
+    public UserId UserId { get; private set; }
 
     public IReadOnlyList<DinnerId> UpcomingDinnerIds => _upcomingDinnerIds.AsReadOnly();
     public IReadOnlyList<DinnerId> PastDinnerIds => _pastDinnerIds.AsReadOnly();
@@ -29,8 +29,8 @@ public sealed class Guest : AggregateRoot<GuestId>
     public IReadOnlyList<MenuReviewId> MenuReviewIds => _menuReviewIds.AsReadOnly();
     public IReadOnlyList<GuestRating> Ratings => _ratings.AsReadOnly();
 
-    public DateTime CreatedDateTime { get; }
-    public DateTime UpdatedDateTime { get; }
+    public DateTime CreatedDateTime { get; private set; }
+    public DateTime UpdatedDateTime { get; private set; }
 
     private Guest(string firstName, string lastName, Uri profileImage, UserId userId, GuestRating? guestRating = null, GuestId? guestId = null)
         : base(guestId ?? GuestId.CreateUnique())
@@ -46,4 +46,10 @@ public sealed class Guest : AggregateRoot<GuestId>
         // TODO: enforce invariants
         return new Guest(firstName, lastName, profileImage, userId);
     }
+
+#pragma warning disable CS8618
+    private Guest()
+    {
+    }
+#pragma warning restore CS8618
 }

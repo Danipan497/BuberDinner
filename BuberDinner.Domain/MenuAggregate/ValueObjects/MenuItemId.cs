@@ -25,4 +25,10 @@ public sealed class MenuItemId : ValueObject
     {
         return new MenuItemId(Guid.NewGuid());
     }
+
+#pragma warning disable CS8618
+    private MenuItemId()
+    {
+    }
+#pragma warning restore CS8618
 }

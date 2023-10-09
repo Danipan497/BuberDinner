@@ -3,14 +3,14 @@ using BuberDinner.Domain.UserAggregate.ValueObjects;
 
 namespace BuberDinner.Domain.HostAggregate.ValueObjects;
 
-public sealed class HostId : ValueObject
+public sealed class HostId : AggregateRootId<string>
 {
+    public override string Value { get; protected set; }
+
     private HostId(string value)
     {
         Value = value;
     }
-
-    public string Value { get; private set; }
 
     public static HostId Create(UserId userId)
     {
@@ -28,4 +28,10 @@ public sealed class HostId : ValueObject
     {
         yield return Value;
     }
+
+#pragma warning disable CS8618
+    private HostId()
+    {
+    }
+#pragma warning restore CS8618
 }

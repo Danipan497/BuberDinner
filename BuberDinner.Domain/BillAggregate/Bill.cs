@@ -6,14 +6,14 @@ using BuberDinner.Domain.HostAggregate.ValueObjects;
 
 namespace BuberDinner.Domain.BillAggregate;
 
-public sealed class Bill : AggregateRoot<BillId>
+public sealed class Bill : AggregateRoot<BillId, string>
 {
-    public DinnerId DinnerId { get; }
-    public GuestId GuestId { get; }
-    public HostId HostId { get; }
-    public Price Amount { get; }
-    public DateTime CreatedDateTime { get; }
-    public DateTime UpdatedDateTime { get; }
+    public DinnerId DinnerId { get; private set; }
+    public GuestId GuestId { get; private set; }
+    public HostId HostId { get; private set; }
+    public Price Amount { get; private set; }
+    public DateTime CreatedDateTime { get; private set; }
+    public DateTime UpdatedDateTime { get; private set; }
 
     private Bill(
         DinnerId dinnerId,
@@ -49,4 +49,10 @@ public sealed class Bill : AggregateRoot<BillId>
             createdDateTime,
             updatedDateTime);
     }
+
+#pragma warning disable CS8618
+    private Bill()
+    {
+    }
+#pragma warning restore CS8618
 }

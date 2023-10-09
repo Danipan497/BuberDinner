@@ -8,17 +8,15 @@ namespace BuberDinner.Domain.DinnerAggregate.Entities;
 
 public sealed class Reservation : Entity<ReservationId>
 {
-    public DinnerId DinnerId { get; }
-    public int GuestCount { get; }
-    public GuestId GuestId { get; }
-    public BillId? BillId { get; }
-    public ReservationStatus Status { get; }
-    public DateTime? ArrivalDateTime { get; }
-    public DateTime CreatedDateTime { get; }
-    public DateTime UpdatedDateTime { get; }
+    public int GuestCount { get; private set; }
+    public GuestId GuestId { get; private set; }
+    public BillId? BillId { get; private set; }
+    public ReservationStatus Status { get; private set; }
+    public DateTime? ArrivalDateTime { get; private set; }
+    public DateTime CreatedDateTime { get; private set; }
+    public DateTime UpdatedDateTime { get; private set; }
 
     private Reservation(
-        DinnerId dinnerId,
         GuestId guestId,
         int guestCount,
         DateTime? arrivalDateTime,
@@ -26,7 +24,6 @@ public sealed class Reservation : Entity<ReservationId>
         ReservationStatus status)
         : base(ReservationId.CreateUnique())
     {
-        DinnerId = dinnerId;
         GuestId = guestId;
         GuestCount = guestCount;
         ArrivalDateTime = arrivalDateTime;
@@ -35,7 +32,6 @@ public sealed class Reservation : Entity<ReservationId>
     }
 
     public static Reservation Create(
-        DinnerId dinnerId,
         GuestId guestId,
         int guestCount,
         ReservationStatus status,
@@ -44,11 +40,16 @@ public sealed class Reservation : Entity<ReservationId>
     {
         // TODO: Enforce invariants
         return new Reservation(
-            dinnerId,
             guestId,
             guestCount,
             arrivalDateTime,
             billId,
             status);
     }
+
+#pragma warning disable CS8618
+    private Reservation()
+    {
+    }
+#pragma warning restore CS8618
 }

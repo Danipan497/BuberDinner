@@ -4,7 +4,7 @@ namespace BuberDinner.Domain.DinnerAggregate.ValueObjects;
 
 public sealed class ReservationId : ValueObject
 {
-    public Guid Value { get; }
+    public Guid Value { get; private set; }
 
     private ReservationId(Guid value)
     {
@@ -16,8 +16,19 @@ public sealed class ReservationId : ValueObject
         return new ReservationId(Guid.NewGuid());
     }
 
+    public static ReservationId Create(Guid value)
+    {
+        return new ReservationId(value);
+    }
+
     public override IEnumerable<object> GetEqualityComponents()
     {
         yield return Value;
     }
+
+#pragma warning disable CS8618
+    private ReservationId()
+    {
+    }
+#pragma warning restore CS8618
 }

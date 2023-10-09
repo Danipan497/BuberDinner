@@ -4,9 +4,9 @@ using BuberDinner.Domain.GuestAggregate.ValueObjects;
 
 namespace BuberDinner.Domain.BillAggregate.ValueObjects;
 
-public sealed class BillId : ValueObject
+public sealed class BillId : AggregateRootId<string>
 {
-    public string Value { get; }
+    public override string Value { get; protected set; }
 
     private BillId(string value)
     {
@@ -32,4 +32,10 @@ public sealed class BillId : ValueObject
     {
         yield return Value;
     }
+
+#pragma warning disable CS8618
+    private BillId()
+    {
+    }
+#pragma warning restore CS8618
 }

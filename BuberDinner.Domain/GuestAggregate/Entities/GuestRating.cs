@@ -10,11 +10,11 @@ namespace BuberDinner.Domain.GuestAggregate.Entities;
 
 public sealed class GuestRating : Entity<GuestRatingId>
 {
-    public HostId HostId { get; }
-    public DinnerId DinnerId { get; }
-    public Rating Rating { get; }
-    public DateTime CreatedDateTime { get; }
-    public DateTime UpdatedDateTime { get; }
+    public HostId HostId { get; private set; }
+    public DinnerId DinnerId { get; private set; }
+    public Rating Rating { get; private set; }
+    public DateTime CreatedDateTime { get; private set; }
+    public DateTime UpdatedDateTime { get; private set; }
 
     private GuestRating(DinnerId dinnerId, HostId hostId, Rating rating)
         : base(GuestRatingId.CreateUnique())
@@ -30,4 +30,10 @@ public sealed class GuestRating : Entity<GuestRatingId>
 
         return new GuestRating(dinnerId, hostId, ratingValueObject);
     }
+
+#pragma warning disable CS8618
+    private GuestRating()
+    {
+    }
+#pragma warning restore CS8618
 }

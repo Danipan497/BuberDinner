@@ -8,14 +8,14 @@ using BuberDinner.Domain.MenuReviewAggregate.ValueObjects;
 
 namespace BuberDinner.Domain.MenuReviewAggregate;
 
-public sealed class MenuReview : AggregateRoot<MenuReviewId>
+public sealed class MenuReview : AggregateRoot<MenuReviewId, Guid>
 {
-    public Rating Rating { get; }
-    public string Comment { get; }
-    public HostId HostId { get; }
-    public MenuId MenuId { get; }
-    public GuestId GuestId { get; }
-    public DinnerId DinnerId { get; }
+    public Rating Rating { get; private set; }
+    public string Comment { get; private set; }
+    public HostId HostId { get; private set; }
+    public MenuId MenuId { get; private set; }
+    public GuestId GuestId { get; private set; }
+    public DinnerId DinnerId { get; private set; }
 
     private MenuReview(
         MenuReviewId menuReviewId,
@@ -56,4 +56,10 @@ public sealed class MenuReview : AggregateRoot<MenuReviewId>
             guestId,
             dinnerId);
     }
+
+#pragma warning disable CS8618
+    private MenuReview()
+    {
+    }
+#pragma warning restore CS8618
 }

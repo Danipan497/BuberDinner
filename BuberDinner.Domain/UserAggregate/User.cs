@@ -3,15 +3,15 @@ using BuberDinner.Domain.UserAggregate.ValueObjects;
 
 namespace BuberDinner.Domain.UserAggregate;
 
-public sealed class User : AggregateRoot<UserId>
+public sealed class User : AggregateRoot<UserId, Guid>
 {
-    public string FirstName { get; }
-    public string LastName { get; }
-    public string Email { get; }
-    public string Password { get; } // TODO: Hash this
+    public string FirstName { get; private set; }
+    public string LastName { get; private set; }
+    public string Email { get; private set; }
+    public string Password { get; private set; } // TODO: Hash this
 
-    public DateTime CreatedDateTime { get; }
-    public DateTime UpdatedDateTime { get; }
+    public DateTime CreatedDateTime { get; private set; }
+    public DateTime UpdatedDateTime { get; private set; }
 
     private User(string firstName, string lastName, string email, string password, UserId? userId = null)
         : base(userId ?? UserId.CreateUnique())
@@ -31,4 +31,10 @@ public sealed class User : AggregateRoot<UserId>
             email,
             password);
     }
+
+#pragma warning disable CS8618
+    private User()
+    {
+    }
+#pragma warning restore CS8618
 }

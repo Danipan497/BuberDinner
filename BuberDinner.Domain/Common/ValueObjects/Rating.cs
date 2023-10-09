@@ -9,7 +9,7 @@ public sealed class Rating : ValueObject
         Value = value;
     }
 
-    public int Value { get; }
+    public int Value { get; private set; }
 
     public static Rating Create(int value)
     {

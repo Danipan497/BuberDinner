@@ -1,6 +1,6 @@
 using BuberDinner.Application.Menus.Commands.CreateMenu;
+using BuberDinner.Application.Menus.Queries.ListMenus;
 using BuberDinner.Contracts.Menus;
-using BuberDinner.Domain.HostAggregate.ValueObjects;
 using BuberDinner.Domain.MenuAggregate;
 
 using Mapster;
@@ -18,8 +18,11 @@ public class MenuMappingConfig : IRegister
             .Map(dest => dest.HostId, src => src.HostId)
             .Map(dest => dest, src => src.Request);
 
+        config.NewConfig<string, ListMenusQuery>()
+            .MapWith(src => new ListMenusQuery(src));
+
         config.NewConfig<Menu, MenuResponse>()
-            .Map(dest => dest.Id, src => src.Id.Value)
+            .Map(dest => dest.Id, src => src.Id.Value.ToString())
             .Map(dest => dest.AverageRating, src => src.AverageRating.Value)
             .Map(dest => dest.HostId, src => src.HostId.Value)
             .Map(dest => dest.DinnerIds, src => src.DinnerIds.Select(dinnerId => dinnerId.Value))

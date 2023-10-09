@@ -7,20 +7,20 @@ using BuberDinner.Domain.UserAggregate.ValueObjects;
 
 namespace BuberDinner.Domain.HostAggregate;
 
-public sealed class Host : AggregateRoot<HostId>
+public sealed class Host : AggregateRoot<HostId, string>
 {
     private readonly List<MenuId> _menuIds = new();
     private readonly List<DinnerId> _dinnerIds = new();
 
-    public string FirstName { get; }
-    public string LastName { get; }
-    public Uri ProfileImage { get; }
-    public AverageRating AverageRating { get; }
-    public UserId UserId { get; }
+    public string FirstName { get; private set; }
+    public string LastName { get; private set; }
+    public Uri ProfileImage { get; private set; }
+    public AverageRating AverageRating { get; private set; }
+    public UserId UserId { get; private set; }
     public IReadOnlyList<MenuId> MenuIds => _menuIds.AsReadOnly();
     public IReadOnlyList<DinnerId> DinnerIds => _dinnerIds.AsReadOnly();
-    public DateTime CreatedDateTime { get; }
-    public DateTime UpdatedDateTime { get; }
+    public DateTime CreatedDateTime { get; private set; }
+    public DateTime UpdatedDateTime { get; private set; }
 
     private Host(
         HostId hostId,
@@ -53,4 +53,10 @@ public sealed class Host : AggregateRoot<HostId>
             userId,
             AverageRating.CreateNew());
     }
+
+#pragma warning disable CS8618
+    private Host()
+    {
+    }
+#pragma warning restore CS8618
 }

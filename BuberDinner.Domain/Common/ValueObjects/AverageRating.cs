@@ -4,13 +4,15 @@ namespace BuberDinner.Domain.Common.ValueObjects;
 
 public sealed class AverageRating : ValueObject
 {
+    private double _value;
+
     private AverageRating(double value, int numRatings)
     {
         Value = value;
         NumRatings = numRatings;
     }
 
-    public double Value { get; private set; }
+    public double? Value { get => NumRatings > 0 ? _value : null; private set => _value = value!.Value; }
     public int NumRatings { get; private set; }
 
     public static AverageRating CreateNew(double rating = 0, int numRatings = 0)
@@ -28,8 +30,14 @@ public sealed class AverageRating : ValueObject
         Value = ((Value * NumRatings) - rating.Value) / --NumRatings;
     }
 
-    public override IEnumerable<object> GetEqualityComponents()
+    public override IEnumerable<object?> GetEqualityComponents()
     {
         yield return Value;
     }
+
+#pragma warning disable CS8618
+    private AverageRating()
+    {
+    }
+#pragma warning restore CS8618
 }

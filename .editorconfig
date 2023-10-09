@@ -368,6 +368,9 @@ dotnet_naming_style.s_camelcase.capitalization = camel_case
 # SA1600: Elements should be documented
 dotnet_diagnostic.SA1600.severity = none
 
+# SA1602: Enum Elements should be documented
+dotnet_diagnostic.SA1602.severity = none
+
 # SA1633: File must have header
 dotnet_diagnostic.SA1633.severity = none
 
