@@ -1433,6 +1433,7 @@
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
           "ErrorOr": "1.2.0",
+          "MediatR": "12.1.1",
           "ardalis.smartenum": "2.1.0"
         },
         "compile": {
@@ -4275,5 +4276,16 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "Warning As Error: Wykryto obniżenie wersji pakietu: MediatR z 12.1.1 na 11.0.0. Aby wybrać inną wersję, odwołaj się do pakietu bezpośrednio z projektu. \r\n BuberDinner.Api -> BuberDinner.Application -> BuberDinner.Domain -> MediatR (>= 12.1.1) \r\n BuberDinner.Api -> BuberDinner.Application -> MediatR (>= 11.0.0)",
+      "libraryId": "MediatR",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    }
+  ]
 }

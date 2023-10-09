@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "0gqmSVWKQWbwtgMaRrEwjsuE3/a14ZvYYZArim1CX5ni/oh0pjX4YLXVALvii+7yH2oegdo7GtXpjivST+mKRw==",
-  "success": true,
+  "dgSpecHash": "irwNnUhVSRsD0wgV49pOV7wHe6o+qkmOi7Qny3D2m53/R9hey9cBfW0VUBdKQGjNj/N0L7mVg9dOV1zDxQNh1A==",
+  "success": false,
   "projectFilePath": "C:\\Code\\Source\\repos\\BuberDinner\\BuberDinner.Infrastructure\\BuberDinner.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Daniel\\.nuget\\packages\\ardalis.smartenum\\2.1.0\\ardalis.smartenum.2.1.0.nupkg.sha512",
@@ -80,5 +80,15 @@
     "C:\\Users\\Daniel\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\Daniel\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "Warning As Error: Wykryto obniżenie wersji pakietu: MediatR z 12.1.1 na 11.0.0. Aby wybrać inną wersję, odwołaj się do pakietu bezpośrednio z projektu. \r\n BuberDinner.Infrastructure -> BuberDinner.Application -> BuberDinner.Domain -> MediatR (>= 12.1.1) \r\n BuberDinner.Infrastructure -> BuberDinner.Application -> MediatR (>= 11.0.0)",
+      "libraryId": "MediatR",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    }
+  ]
 }
