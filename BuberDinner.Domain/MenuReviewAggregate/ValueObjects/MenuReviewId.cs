@@ -4,11 +4,8 @@ namespace BuberDinner.Domain.MenuReviewAggregate.ValueObjects;
 
 public sealed class MenuReviewId : AggregateRootId<Guid>
 {
-    public override Guid Value { get; protected set; }
-
-    private MenuReviewId(Guid value)
+    private MenuReviewId(Guid value) : base(value)
     {
-        Value = value;
     }
 
     public static MenuReviewId CreateUnique()
@@ -22,15 +19,4 @@ public sealed class MenuReviewId : AggregateRootId<Guid>
         // TODO: enforce invariants
         return new MenuReviewId(value);
     }
-
-    public override IEnumerable<object> GetEqualityComponents()
-    {
-        yield return Value;
-    }
-
-#pragma warning disable CS8618
-    private MenuReviewId()
-    {
-    }
-#pragma warning restore CS8618
 }

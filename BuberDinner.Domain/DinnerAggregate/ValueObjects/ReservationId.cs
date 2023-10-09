@@ -2,13 +2,10 @@ using BuberDinner.Domain.Common.Models;
 
 namespace BuberDinner.Domain.DinnerAggregate.ValueObjects;
 
-public sealed class ReservationId : ValueObject
+public sealed class ReservationId : EntityId<Guid>
 {
-    public Guid Value { get; private set; }
-
-    private ReservationId(Guid value)
+    private ReservationId(Guid value) : base(value)
     {
-        Value = value;
     }
 
     public static ReservationId CreateUnique()
@@ -20,15 +17,4 @@ public sealed class ReservationId : ValueObject
     {
         return new ReservationId(value);
     }
-
-    public override IEnumerable<object> GetEqualityComponents()
-    {
-        yield return Value;
-    }
-
-#pragma warning disable CS8618
-    private ReservationId()
-    {
-    }
-#pragma warning restore CS8618
 }

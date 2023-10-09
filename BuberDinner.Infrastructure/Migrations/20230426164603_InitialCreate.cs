@@ -179,8 +179,8 @@ namespace BuberDinner.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    BillId = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    GuestId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    GuestId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    BillId = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -199,8 +199,8 @@ namespace BuberDinner.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    MenuReviewId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    GuestId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    GuestId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    MenuReviewId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -219,8 +219,8 @@ namespace BuberDinner.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    DinnerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    GuestId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    GuestId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    DinnerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -239,8 +239,8 @@ namespace BuberDinner.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    DinnerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    GuestId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    GuestId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    DinnerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -282,8 +282,8 @@ namespace BuberDinner.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    DinnerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    GuestId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    GuestId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    DinnerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -302,8 +302,8 @@ namespace BuberDinner.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    HostDinnerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    HostId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    HostId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    HostDinnerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -322,8 +322,8 @@ namespace BuberDinner.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    HostMenuId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    HostId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    HostId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    HostMenuId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -342,8 +342,8 @@ namespace BuberDinner.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    DinnerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    MenuId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    MenuId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    DinnerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -362,8 +362,8 @@ namespace BuberDinner.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ReviewId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    MenuId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    MenuId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ReviewId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {

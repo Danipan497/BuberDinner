@@ -19,10 +19,8 @@ public class ListMenusQueryHandler : IRequestHandler<ListMenusQuery, ErrorOr<Lis
 
     public async Task<ErrorOr<List<Menu>>> Handle(ListMenusQuery query, CancellationToken cancellationToken)
     {
-        await Task.CompletedTask;
-
         var hostId = HostId.Create(query.HostId);
 
-        return _menuRepository.List(hostId);
+        return await _menuRepository.ListAsync(hostId);
     }
 }

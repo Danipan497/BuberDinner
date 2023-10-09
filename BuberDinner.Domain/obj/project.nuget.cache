@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "zuRve14LFfEhDAtvae9feesNHgSuPwiI9FkMBKk8mk62go+wmF9K1wxnGHlk6+ZFZhb3qLLZw97NZ4h6avHapQ==",
+  "dgSpecHash": "4YPrgb5Kd0qxgCKwGPjgCGmJhpIty/NJx/bb7iU4Z7UQ8AWdwvTiC2CLxwhHu0qr+5jTxwiVnGBSnvjuu3E4Eg==",
   "success": true,
   "projectFilePath": "C:\\Code\\Source\\repos\\BuberDinner\\BuberDinner.Domain\\BuberDinner.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Daniel\\.nuget\\packages\\ardalis.smartenum\\2.1.0\\ardalis.smartenum.2.1.0.nupkg.sha512",
     "C:\\Users\\Daniel\\.nuget\\packages\\erroror\\1.2.0\\erroror.1.2.0.nupkg.sha512",
-    "C:\\Users\\Daniel\\.nuget\\packages\\mediatr\\12.1.1\\mediatr.12.1.1.nupkg.sha512",
+    "C:\\Users\\Daniel\\.nuget\\packages\\mediatr\\12.0.1\\mediatr.12.0.1.nupkg.sha512",
     "C:\\Users\\Daniel\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\Daniel\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\Daniel\\.nuget\\packages\\stylecop.analyzers\\1.2.0-beta.435\\stylecop.analyzers.1.2.0-beta.435.nupkg.sha512",

@@ -2,14 +2,11 @@ using BuberDinner.Domain.Common.Models;
 
 namespace BuberDinner.Domain.MenuAggregate.ValueObjects;
 
-public sealed class MenuSectionId : ValueObject
+public sealed class MenuSectionId : EntityId<Guid>
 {
-    public MenuSectionId(Guid value)
+    public MenuSectionId(Guid value) : base(value)
     {
-        Value = value;
     }
-
-    public Guid Value { get; private set; }
 
     public static MenuSectionId CreateUnique()
     {
@@ -22,15 +19,4 @@ public sealed class MenuSectionId : ValueObject
         // TODO: enforce invariants
         return new MenuSectionId(value);
     }
-
-    public override IEnumerable<object> GetEqualityComponents()
-    {
-        yield return Value;
-    }
-
-#pragma warning disable CS8618
-    private MenuSectionId()
-    {
-    }
-#pragma warning restore CS8618
 }

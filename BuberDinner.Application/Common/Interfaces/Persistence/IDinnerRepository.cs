@@ -5,6 +5,6 @@ namespace BuberDinner.Application.Common.Interfaces.Persistence;
 
 public interface IDinnerRepository
 {
-    void Add(Dinner dinner);
-    List<Dinner> List(HostId hostId);
+    Task AddAsync(Dinner dinner);
+    Task<List<Dinner>> ListAsync(HostId hostId);
 }

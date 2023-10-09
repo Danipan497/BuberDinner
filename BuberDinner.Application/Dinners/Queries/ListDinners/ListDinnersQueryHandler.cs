@@ -19,9 +19,7 @@ public class ListDinnersQueryHandler : IRequestHandler<ListDinnersQuery, ErrorOr
 
     public async Task<ErrorOr<List<Dinner>>> Handle(ListDinnersQuery request, CancellationToken cancellationToken)
     {
-        await Task.CompletedTask;
-
         var hostId = HostId.Create(request.HostId);
-        return _dinnerRepository.List(hostId);
+        return await _dinnerRepository.ListAsync(hostId);
     }
 }

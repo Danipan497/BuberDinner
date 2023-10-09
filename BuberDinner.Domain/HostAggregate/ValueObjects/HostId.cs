@@ -5,11 +5,8 @@ namespace BuberDinner.Domain.HostAggregate.ValueObjects;
 
 public sealed class HostId : AggregateRootId<string>
 {
-    public override string Value { get; protected set; }
-
-    private HostId(string value)
+    private HostId(string value) : base(value)
     {
-        Value = value;
     }
 
     public static HostId Create(UserId userId)
@@ -23,15 +20,4 @@ public sealed class HostId : AggregateRootId<string>
         // TODO: enforce invariants
         return new HostId(hostId);
     }
-
-    public override IEnumerable<object> GetEqualityComponents()
-    {
-        yield return Value;
-    }
-
-#pragma warning disable CS8618
-    private HostId()
-    {
-    }
-#pragma warning restore CS8618
 }

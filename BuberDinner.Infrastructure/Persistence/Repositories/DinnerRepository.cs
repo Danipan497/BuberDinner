@@ -4,7 +4,7 @@ using BuberDinner.Application.Common.Interfaces.Persistence;
 using BuberDinner.Domain.DinnerAggregate;
 using BuberDinner.Domain.HostAggregate.ValueObjects;
 
-using Microsoft.EntityFrameworkCore.Internal;
+using Microsoft.EntityFrameworkCore;
 
 namespace BuberDinner.Infrastructure.Persistence.Repositories;
 
@@ -17,15 +17,15 @@ public class DinnerRepository : IDinnerRepository
         _dbContext = dbContext;
     }
 
-    public void Add(Dinner dinner)
+    public async Task AddAsync(Dinner dinner)
     {
-        _dbContext.Add(dinner);
+        await _dbContext.AddAsync(dinner);
 
-        _dbContext.SaveChanges();
+        await _dbContext.SaveChangesAsync();
     }
 
-    public List<Dinner> List(HostId hostId)
+    public async Task<List<Dinner>> ListAsync(HostId hostId)
     {
-        return _dbContext.Dinners.Where(dinner => dinner.HostId == hostId).ToList();
+        return await _dbContext.Dinners.Where(dinner => dinner.HostId == hostId).ToListAsync();
     }
 }

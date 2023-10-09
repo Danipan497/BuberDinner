@@ -3,13 +3,10 @@ using BuberDinner.Domain.GuestAggregate.Entities;
 
 namespace BuberDinner.Domain.GuestAggregate.ValueObjects;
 
-public sealed class GuestRatingId : ValueObject
+public sealed class GuestRatingId : EntityId<Guid>
 {
-    public Guid Value { get; private set; }
-
-    private GuestRatingId(Guid value)
+    private GuestRatingId(Guid value) : base(value)
     {
-        Value = value;
     }
 
     public static GuestRatingId CreateUnique()
@@ -21,15 +18,4 @@ public sealed class GuestRatingId : ValueObject
     {
         return new GuestRatingId(value);
     }
-
-    public override IEnumerable<object> GetEqualityComponents()
-    {
-        yield return Value;
-    }
-
-#pragma warning disable CS8618
-    private GuestRatingId()
-    {
-    }
-#pragma warning restore CS8618
 }

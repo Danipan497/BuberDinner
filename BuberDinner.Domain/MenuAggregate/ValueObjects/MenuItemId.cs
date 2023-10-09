@@ -2,18 +2,10 @@ using BuberDinner.Domain.Common.Models;
 
 namespace BuberDinner.Domain.MenuAggregate.ValueObjects;
 
-public sealed class MenuItemId : ValueObject
+public sealed class MenuItemId : EntityId<Guid>
 {
-    public Guid Value { get; private set; }
-
-    private MenuItemId(Guid value)
+    private MenuItemId(Guid value) : base(value)
     {
-        Value = value;
-    }
-
-    public override IEnumerable<object> GetEqualityComponents()
-    {
-        yield return Value;
     }
 
     public static MenuItemId Create(Guid value)
@@ -25,10 +17,4 @@ public sealed class MenuItemId : ValueObject
     {
         return new MenuItemId(Guid.NewGuid());
     }
-
-#pragma warning disable CS8618
-    private MenuItemId()
-    {
-    }
-#pragma warning restore CS8618
 }

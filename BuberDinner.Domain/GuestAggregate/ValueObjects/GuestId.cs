@@ -4,11 +4,8 @@ namespace BuberDinner.Domain.GuestAggregate.ValueObjects;
 
 public sealed class GuestId : AggregateRootId<Guid>
 {
-    public override Guid Value { get; protected set; }
-
-    private GuestId(Guid guid)
+    private GuestId(Guid value) : base(value)
     {
-        Value = guid;
     }
 
     public static GuestId CreateUnique()
@@ -20,15 +17,4 @@ public sealed class GuestId : AggregateRootId<Guid>
     {
         return new GuestId(value);
     }
-
-    public override IEnumerable<object> GetEqualityComponents()
-    {
-        yield return Value;
-    }
-
-#pragma warning disable CS8618
-    private GuestId()
-    {
-    }
-#pragma warning restore CS8618
 }

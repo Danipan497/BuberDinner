@@ -6,7 +6,9 @@ namespace BuberDinner.Application.Common.Interfaces.Persistence;
 
 public interface IMenuRepository
 {
-    void Add(Menu menu);
-    bool Exists(MenuId menuId);
-    List<Menu> List(HostId hostId);
+    Task UpdateAsync(Menu menu);
+    Task AddAsync(Menu menu);
+    Task<Menu?> GetByIdAsync(MenuId menuId);
+    Task<bool> ExistsAsync(MenuId menuId);
+    Task<List<Menu>> ListAsync(HostId hostId);
 }

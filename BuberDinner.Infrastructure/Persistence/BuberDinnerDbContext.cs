@@ -1,4 +1,4 @@
-using System.Data.Common;
+using System.Collections.ObjectModel;
 
 using BuberDinner.Domain.BillAggregate;
 using BuberDinner.Domain.Common.Models;
@@ -8,7 +8,6 @@ using BuberDinner.Domain.HostAggregate;
 using BuberDinner.Domain.MenuAggregate;
 using BuberDinner.Domain.MenuReviewAggregate;
 using BuberDinner.Domain.UserAggregate;
-using BuberDinner.Infrastructure.Persistence.Configurations;
 using BuberDinner.Infrastructure.Persistence.Interceptors;
 
 using Microsoft.EntityFrameworkCore;
@@ -18,6 +17,7 @@ namespace BuberDinner.Infrastructure.Persistence;
 public class BuberDinnerDbContext : DbContext
 {
     private readonly PublishDomainEventsInterceptor _publishDomainEventsInterceptor;
+
     public BuberDinnerDbContext(DbContextOptions<BuberDinnerDbContext> options, PublishDomainEventsInterceptor publishDomainEventsInterceptor)
         : base(options)
     {

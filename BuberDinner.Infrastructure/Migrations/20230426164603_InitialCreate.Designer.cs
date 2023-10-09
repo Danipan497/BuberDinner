@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BuberDinner.Infrastructure.Migrations
 {
     [DbContext(typeof(BuberDinnerDbContext))]
-    [Migration("20230407140329_InitialCreate")]
+    [Migration("20230426164603_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -404,7 +404,6 @@ namespace BuberDinner.Infrastructure.Migrations
                                 .HasColumnType("uniqueidentifier");
 
                             b1.Property<string>("Value")
-                                .IsRequired()
                                 .HasColumnType("nvarchar(max)")
                                 .HasColumnName("BillId");
 

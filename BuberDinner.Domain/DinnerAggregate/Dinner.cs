@@ -1,6 +1,7 @@
 using BuberDinner.Domain.Common.Models;
 using BuberDinner.Domain.DinnerAggregate.Entities;
 using BuberDinner.Domain.DinnerAggregate.Enums;
+using BuberDinner.Domain.DinnerAggregate.Events;
 using BuberDinner.Domain.DinnerAggregate.ValueObjects;
 using BuberDinner.Domain.HostAggregate.ValueObjects;
 using BuberDinner.Domain.MenuAggregate.ValueObjects;
@@ -74,7 +75,7 @@ public sealed class Dinner : AggregateRoot<DinnerId, Guid>
         Location location)
     {
         // enforce invariants
-        return new Dinner(
+        var dinner = new Dinner(
             DinnerId.CreateUnique(),
             name,
             description,
@@ -87,6 +88,10 @@ public sealed class Dinner : AggregateRoot<DinnerId, Guid>
             hostId,
             imageUrl,
             location);
+
+        dinner.AddDomainEvent(new DinnerCreated(dinner));
+
+        return dinner;
     }
 
 #pragma warning disable CS8618

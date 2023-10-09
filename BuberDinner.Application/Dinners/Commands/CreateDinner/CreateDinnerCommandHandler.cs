@@ -1,5 +1,3 @@
-using System.Reflection.PortableExecutable;
-
 using BuberDinner.Application.Common.Interfaces.Persistence;
 using BuberDinner.Domain.Common.DomainErrors;
 using BuberDinner.Domain.DinnerAggregate;
@@ -26,8 +24,6 @@ public class CreateDinnerCommandHandler : IRequestHandler<CreateDinnerCommand, E
 
     public async Task<ErrorOr<Dinner>> Handle(CreateDinnerCommand command, CancellationToken cancellationToken)
     {
-        await Task.CompletedTask;
-
         var createMenuIdResult = MenuId.Create(command.MenuId);
 
         if (createMenuIdResult.IsError)
@@ -35,7 +31,7 @@ public class CreateDinnerCommandHandler : IRequestHandler<CreateDinnerCommand, E
             return createMenuIdResult.Errors;
         }
 
-        if (!_menuRepository.Exists(createMenuIdResult.Value))
+        if (!await _menuRepository.ExistsAsync(createMenuIdResult.Value))
         {
             return Errors.Menu.NotFound;
         }
@@ -59,7 +55,7 @@ public class CreateDinnerCommandHandler : IRequestHandler<CreateDinnerCommand, E
                 command.Location.Latitude,
                 command.Location.Longitude));
 
-        _dinnerRepository.Add(dinner);
+        await _dinnerRepository.AddAsync(dinner);
 
         return dinner;
     }
